@@ -11,9 +11,9 @@ SET BOOST_LIBRARYDIR="%mainfolder%\Tools\boost\lib64-msvc-14.2"
 SET boost_INCLUDE_DIR="%mainfolder%\Tools\boost"
 set "GIT_EXEC_PATH=%mainfolder%\tools\Git\bin"
 SET dynamic_linking=0
-set sourcepath=AzerothCore
-set repo=https://github.com/azerothcore/azerothcore-wotlk.git
-set branch=master
+set sourcepath=SingleCore
+set repo=https://github.com/Falmarilion/SingleCore-AC.git
+set branch=classless-new
 set arch=
 set archpath=Win64
 
