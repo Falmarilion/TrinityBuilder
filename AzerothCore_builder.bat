@@ -90,8 +90,8 @@ echo.
 goto menu
 
 :menu
-"%GIT_EXEC_PATH%\git.exe" config --global user.name "SPP User"
-"%GIT_EXEC_PATH%\git.exe" config --global user.email spp-user@spp-forum.de
+"%GIT_EXEC_PATH%\git.exe" config --global user.name "Falmaril"
+"%GIT_EXEC_PATH%\git.exe" config --global user.email falmarillion@gmail.com
 cd "%mainfolder%"
 if exist "%mainfolder%\Source\%sourcepath%\SoloLFG.txt" set sololfg_status=Installed
 if not exist "%mainfolder%\Source\%sourcepath%\SoloLFG.txt" set sololfg_status=Not installed
