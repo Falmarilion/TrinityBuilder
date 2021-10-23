@@ -5,7 +5,7 @@ SET msbuildpath="%mainfolder%\Tools\VisualStudio\MSBuild\Current\Bin\msbuild.exe
 SET cmake=3.21.1
 set database=MySQL-5.7.35
 set database_lib=libmysql
-set openssl=1.1.0-Win64
+set openssl=1.1.0
 SET BOOST_ROOT="%mainfolder%\Tools\boost"
 SET BOOST_LIBRARYDIR="%mainfolder%\Tools\boost\lib64-msvc-14.2"
 SET boost_INCLUDE_DIR="%mainfolder%\Tools\boost"
@@ -19,7 +19,7 @@ set archpath=Win64
 
 :beginning
 cd "%mainfolder%"
-mkdir"%mainfolder%\Tools\modules"
+mkdir "%mainfolder%\Tools\modules"
 mkdir "%mainfolder%\Repack"
 mkdir "%mainfolder%\Repack\Database"
 mkdir "%mainfolder%\Repack\dbc"
@@ -212,7 +212,7 @@ if exist "%mainfolder%\Source\%sourcepath%\contrib\sunstrider\generate_script_lo
 echo.
 echo Generate cmake...
 echo.
-"%mainfolder%\Tools\cmake\%cmake%\bin\cmake.exe" "%mainfolder%/Source/%sourcepath%" -G "Visual Studio 16 2019%arch%" -DBoost_DIR="%mainfolder%\Tools\boost" -DBoost_INCLUDE_DIR="%mainfolder%\Tools\boost" -DOPENSSL_ROOT_DIR="%mainfolder%/Tools/openssl/1.1.0-Win64" -DOPENSSL_INCLUDE_DIR="%mainfolder%/Tools/openssl/1.1.0-Win64/include" -DMYSQL_LIBRARY="%mainfolder%/Tools/database/%database%-%archpath%/lib/%database_lib%.lib" -DMYSQL_INCLUDE_DIR="%mainfolder%/Tools/database/%database%-%archpath%/include" -DGIT_EXECUTABLE="%mainfolder%/Tools/Git/bin/git.exe" -DTOOLS=1 -DPLAYERBOT=1 -DPLAYERBOTS=1 -DBUILD_EXTRACTORS=1 -DWITH_CPR=1 -DSCRIPTS=static
+"%mainfolder%\Tools\cmake\%cmake%\bin\cmake.exe" "%mainfolder%/Source/%sourcepath%" -G "Visual Studio 16 2019%arch%" -DBoost_DIR="%mainfolder%\Tools\boost" -DBoost_INCLUDE_DIR="%mainfolder%\Tools\boost" -DOPENSSL_ROOT_DIR="%mainfolder%/Tools/openssl/%openssl%-%archpath%" -DOPENSSL_INCLUDE_DIR="%mainfolder%/Tools/openssl/%openssl%-%archpath%/include" -DMYSQL_LIBRARY="%mainfolder%/Tools/database/%database%-%archpath%/lib/%database_lib%.lib" -DMYSQL_INCLUDE_DIR="%mainfolder%/Tools/database/%database%-%archpath%/include" -DGIT_EXECUTABLE="%mainfolder%/Tools/Git/bin/git.exe" -DTOOLS=1 -DPLAYERBOT=1 -DPLAYERBOTS=1 -DBUILD_EXTRACTORS=1 -DWITH_CPR=1 -DSCRIPTS=static
 echo.
 echo Start building...
 echo.
@@ -220,7 +220,7 @@ echo.
 echo.
 echo Copy required dll files into bin folder
 copy "%mainfolder%\Tools\database\%database%-%archpath%\lib\%database_lib%.dll" "%mainfolder%\Build\%sourcepath%_%archpath%\bin\release"
-copy "%mainfolder%\Tools\openssl\1.1.0-Win64\*.dll" "%mainfolder%\Build\%sourcepath%_%archpath%\bin\release"
+copy "%mainfolder%\Tools\openssl\%openssl%-%archpath%\*.dll" "%mainfolder%\Build\%sourcepath%_%archpath%\bin\release"
 echo.
 pause
 cls
