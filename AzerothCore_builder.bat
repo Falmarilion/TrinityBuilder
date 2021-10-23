@@ -11,7 +11,7 @@ SET BOOST_LIBRARYDIR="%mainfolder%\Tools\boost\lib64-msvc-14.2"
 SET boost_INCLUDE_DIR="%mainfolder%\Tools\boost"
 set "GIT_EXEC_PATH=%mainfolder%\tools\Git\bin"
 SET dynamic_linking=0
-set sourcepath=SingleCore
+set sourcepath=SingleCore-AC
 set repo=https://github.com/Falmarilion/SingleCore-AC.git
 set branch=classless-new
 set arch=
@@ -54,7 +54,7 @@ if exist "%mainfolder%\Source\%sourcepath%\README.md" goto git_pull
 echo Get the source from %repo% %branch%
 echo.
 "%GIT_EXEC_PATH%\git.exe" clone %repo% "%mainfolder%/Source/%sourcepath%"
-goto git_clone_finish
+goto git_clone_branch
 
 :git_clone_branch
 "%GIT_EXEC_PATH%\git.exe" clone %repo% --single-branch -b %branch% "%mainfolder%/Source/%sourcepath%"
@@ -75,7 +75,7 @@ echo Pull the commits from %repo% %branch%
 echo.
 cd "%mainfolder%\Source\%sourcepath%"
 "%GIT_EXEC_PATH%\git.exe" pull %repo%
-goto git_pull_finish
+goto git_pull_branch
 
 :git_pull_branch
 "%GIT_EXEC_PATH%\git.exe" pull %repo% %branch%
